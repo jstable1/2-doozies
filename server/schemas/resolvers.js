@@ -6,7 +6,7 @@ const resolvers = {
   Query: {
     users: async () => {
       return User.find()
-        .select('-__v -password')
+        .select('-__v')
         .populate('doozies')
     },
     user: async (parent, { username }) => {
@@ -52,7 +52,7 @@ const resolvers = {
 
         await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $push: { doozie: doozie._id } },
+          { $push: { doozies: doozie._id } },
           { new: true }
         );
 
@@ -60,6 +60,45 @@ const resolvers = {
       }
 
       throw new AuthenticationError('You need to be logged in!');
+    },
+    deleteDoozie: async (parent, args, context) => {
+      if (context.user) {
+        const doozie = await Doozie.findOneAndRemove({ _id: args.id });
+
+        const user = await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $pull: { doozies: args.id } },
+          { new: true }
+        );
+
+        return user;
+      }
+
+      throw new AuthenticationError('You need to be logged in!')
+    },
+    completeDoozie: async (parent, args, context) => {
+      if (context.user) {
+        const currentDoozie = await Doozie.findById({ _id: args.id });
+        if (currentDoozie.completed) {
+
+          const doozie = await Doozie.findOneAndUpdate({ _id: args.id }, {
+            completed: false
+          }, 
+          { new: true });
+
+          return doozie;
+
+        } else {
+          const doozie = await Doozie.findOneAndUpdate({ _id: args.id }, {
+            completed: true
+          },
+          { new: true });
+
+          return doozie;
+        }
+      }
+
+      throw new AuthenticationError('You need to be logged in!')
     },
   }
 };
