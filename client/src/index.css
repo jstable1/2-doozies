@@ -72,7 +72,7 @@ label {
 
 .today-list, .future-list {
   background-size: cover;
-  color: var(--primary);
+  color: var(--secondary);
   padding: 20px;
 }
 

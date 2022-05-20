@@ -16,7 +16,7 @@ const Header = () => {
           <h1>2doozies</h1>
         </Link>
 
-        <nav className="text-center">
+        <nav class="text-center">
           {Auth.loggedIn() ? (
             <>
               <a href="/" onClick={logout}>
@@ -31,7 +31,7 @@ const Header = () => {
           )}
         </nav>
       </div>
-      <div class="affirmation">Be yourself, there is no one better.</div>
+      <div className="affirmation">Be yourself, there is no one better.</div>
     </header>
   );
 };
