@@ -6,7 +6,7 @@ const resolvers = {
   Query: {
     users: async () => {
       return User.find()
-        .select('-__v')
+      .select('-__v -password')
         .populate('doozies')
     },
     user: async (parent, { username }) => {
