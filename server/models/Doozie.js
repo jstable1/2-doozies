@@ -2,12 +2,9 @@ const { Schema, model } = require('mongoose');
 
 const doozieSchema = new Schema(
   {
-    title: {
+    doozieText: {
       type: String,
-      required: 'You need to have a title!'
-    },
-    description: {
-      type: String
+      required: 'Please add a to-do!'
     },
     username: {
       type: String,

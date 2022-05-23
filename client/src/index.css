@@ -12,6 +12,11 @@ body {
   margin: 40px;
 }
 
+#cbox:checked + label {
+  text-decoration: line-through;
+  font-size: medium;
+}
+
 header {
   margin-bottom: 70px;
 }
@@ -68,6 +73,10 @@ label {
 
 .signup-form button, .login-form button {
   background-color: var(--primary);
+}
+
+.strikethrough {
+  text-decoration: line-through;
 }
 
 .today-list, .future-list {

@@ -16,7 +16,7 @@ const Header = () => {
           <h1>2doozies</h1>
         </Link>
 
-        <nav class="text-center">
+        <nav className="text-center">
           {Auth.loggedIn() ? (
             <>
               <a href="/" onClick={logout}>

@@ -22,4 +22,24 @@ export const ADD_USER = gql`
       }
     }
   }
+  `;
+
+export const COMPLETE_DOOZIE = gql`
+  mutation completeDoozie($id: ID!) {
+    completeDoozie(id: $id) {
+      _id
+      completed
+    }
+  }
+`;
+
+export const ADD_DOOZIE = gql`
+  mutation AddDoozie($doozieText: String!) {
+    addDoozie(doozieText: $doozieText) {
+      _id
+      doozieText
+      completed
+      username
+    }
+  }
 `;

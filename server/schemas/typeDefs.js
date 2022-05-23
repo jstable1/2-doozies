@@ -10,8 +10,7 @@ const typeDefs = gql`
 
   type Doozie {
     _id: ID
-    title: String
-    description: String
+    doozieText: String
     username: String
     completed: Boolean
   }
@@ -31,7 +30,7 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addDoozie(title: String!, description: String!, username: String!, completed: Boolean!): Doozie
+    addDoozie(doozieText: String!): Doozie
     completeDoozie (id: ID!): Doozie
     deleteDoozie (id: ID!): User
   }
