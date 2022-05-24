@@ -15,7 +15,7 @@
   font-size: xx-large;
   font-weight: bolder;
   text-align: center;
-  color: var(--pink);
+  color: var(--secondary);
   padding: 2vw;
 }
 
@@ -81,6 +81,10 @@ header h1 {
 .flex-column {
   display: flex;
   flex-direction: column;
+}
+
+footer {
+  text-align: center;
 }
 
 form button {
