@@ -1,8 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 :root {
   --primary: #5ED1F7;
   --secondary: #ffffff;
   --yellow: #F4EB72;
-  --blue: #5ED1F7;
+  /* --pink: #D9819E; */
+  --pink: #D885FF;
+}
+
+.affirmation {
+  font-size: xx-large;
+  font-weight: bolder;
+  text-align: center;
+  color: var(--pink);
+  padding: 2vw;
 }
 
 body {
@@ -12,79 +26,111 @@ body {
   margin: 40px;
 }
 
+button {
+  color: var(--yellow);
+  background-color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 10px;
+  padding: 10px;
+  font-size: x-large;
+}
+
+button:hover {
+  color: var(--secondary);
+  background-color: var(--pink);
+  border-color: var(--pink);
+}
+
+.btnNewDoozie {
+  margin-top: 4vw;
+}
+
+.calendar {
+  color: var(--secondary);
+  padding-top: 5vw;
+  font-weight: bolder;
+  font-size: larger;
+}
+
+.calendar button {
+  color: var(--secondary)
+}
+
+.calendar button:hover {
+  background-color: var(--secondary)
+}
+
 .cbox:checked + label {
   text-decoration: line-through;
   font-size: medium;
 }
 
 header {
-  margin-bottom: 70px;
+  margin-bottom: 2vw;
 }
 
-a, .btn-outline-info {
+header h1 {
   color: var(--secondary);
-}
-
-a:hover {
-  text-decoration: none;
-  color: var(--secondary);
-}
-
-.btn:hover {
-  background-color: #D383FF;
-}
-
-.btn-outline-info {
-  border-color: var(--secondary);
 }
 
 .flex-row {
   display: flex;
-  width: 100%;
   justify-content: space-evenly;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
 }
 
 form button {
   margin-top: 10px;
-  margin-left: 5px;
-}
-
-.future-list{
-  margin-left: 10px;
 }
 
 label {
   padding-bottom: 20px;
 }
 
-.login-page img {
-  width: 50%;
-}
-
 .signup-form, .login-form {
   padding: 20px;
-  border: 3px solid var(--yellow);
+  border: 1px solid var(--yellow);
   border-radius: 15px;
   margin-top: 55px;
   background-color: var(--yellow);
-  width: auto;
-  height: auto;
+  width: 40vw;
+  height: 20vw;
 }
 
 .signup-form button, .login-form button {
-  background-color: var(--primary);
+  color: var(--secondary);
+  font-weight: bold;
+}
+
+.signup-form input, .login-form input {
+  padding: 10px;
+  margin: 10px 0px;
+  border: 1px solid var(--secondary);
+  border-radius: 5px;
+}
+
+.space-between {
+  justify-content: space-between;
+  margin: 10px;
 }
 
 .strikethrough {
   text-decoration: line-through;
 }
 
-.today-list, .future-list {
-  background-size: cover;
-  color: var(--secondary);
-  padding: 20px;
+textarea {
+  width: 100%;
+  border: 1px solid var(--secondary);
+  border-radius: 5px;
+  padding: 10px;
+  font-weight: 600;
 }
 
-.today-list button {
-  background-color: var(--primary);
+.today-list {
+  color: var(--primary);
+  margin: 4vw 0vw;
 }

@@ -1,4 +1,4 @@
-const affirmations = [
+const affirmationList = [
   {
     affirmation: "Be yourself, there is no one better",
   },
@@ -34,4 +34,4 @@ const affirmations = [
   },
 ];
 
-export default affirmations;
+export default affirmationList;

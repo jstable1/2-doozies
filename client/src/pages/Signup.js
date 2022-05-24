@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
+import loginImage from "../assets/images/login-image.jpeg";
 
 import Auth from '../utils/auth';
 
@@ -38,12 +39,12 @@ const Signup = () => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-md-6">
-        <div className="card">
-          <h4 className="card-header">Sign Up</h4>
-          <div className="card-body">
-            <form onSubmit={handleFormSubmit}>
+    <main>
+        <div className="flex-row">
+          <div className="signup-form">
+            <form 
+              className="flex-column space-between"
+              onSubmit={handleFormSubmit}>
               <input
                 className="form-input"
                 placeholder="Your username"
@@ -71,15 +72,15 @@ const Signup = () => {
                 value={formState.password}
                 onChange={handleChange}
               />
-              <button className="btn d-block w-100" type="submit">
-                Submit
+              <button type="submit">
+                Signup
               </button>
             </form>
 
             {error && <div>Signup failed</div>}
           </div>
+          <img src={loginImage} style={{ width: "40%" }} alt="2doozies moto" />
         </div>
-      </div>
     </main>
   );
 };

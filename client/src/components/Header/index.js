@@ -1,37 +1,40 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-import Auth from '../../utils/auth';
+import Auth from "../../utils/auth";
 
 const Header = () => {
-  const logout = event => {
+  const logout = (event) => {
     event.preventDefault();
     Auth.logout();
   };
 
   return (
-    <header className="bg-secondary mb-4 py-2 flex-row align-center">
-      <div className="container flex-row justify-space-between-lg justify-center align-center">
-        <Link to="/">
-          <h1>2doozies</h1>
-        </Link>
+    <header>
+      <div className="flex-row space-between">
+        <h1>
+          <font color="#F4EB72">2</font>doozies
+        </h1>
 
-        <nav className="text-center">
+        <nav>
           {Auth.loggedIn() ? (
             <>
-              <a href="/" onClick={logout}>
+              <button href="/" onClick={logout}>
                 Logout
-              </a>
+              </button>
             </>
           ) : (
             <>
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Signup</Link>
+              <Link to="/login">
+                <button>Login</button>
+              </Link>
+              <Link to="/signup">
+                <button>Signup</button>
+              </Link>
             </>
           )}
         </nav>
       </div>
-      <div className="affirmation">Be yourself, there is no one better.</div>
     </header>
   );
 };

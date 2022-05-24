@@ -74,7 +74,7 @@ const DoozieList = ({ doozies }) => {
         <div key={doozie._id} className="today-list">
           <h3>
             <input type="checkbox" className="cbox" id={doozie._id} onChange={handleCheck} checked={doozie.completed ? true : false } />
-            <label for="cbox">{doozie.doozieText}</label>
+            <label> {doozie.doozieText}</label>
           </h3>
         </div>
       ))}
@@ -86,8 +86,8 @@ const DoozieList = ({ doozies }) => {
             className="addNewDoozie"
             onChange={handleChange}
           ></textarea>
-          <p>Character Count: {characterCount}/180</p>
-          <button type="submit">Submit Task!</button>
+          <h4>Character Count: {characterCount}/180</h4>
+          <button type="submit" className="btnNewDoozie">Submit Task!</button>
         </form>
       </div>
     </div>
