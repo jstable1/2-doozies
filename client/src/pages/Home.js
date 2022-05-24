@@ -9,14 +9,18 @@ const Home = () => {
     const { loading, data } = useQuery(QUERY_DOOZIES);
     const doozies = data?.doozies || [];
 
+    const moment = require('moment');
+    const date = moment().format('l [To-Do List:]');
+
 
     return (
         <main className="flex-row">
             <div>
+                <h2>{date}</h2>
                 {loading? (
                     <div>Loading...</div>
                 ) : (
-                    <DoozieList 
+                    <DoozieList
                     doozies={doozies}
                 />
                 )}

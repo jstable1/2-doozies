@@ -5,18 +5,17 @@ import { ADD_DOOZIE, COMPLETE_DOOZIE } from "../../utils/mutations";
 import { QUERY_DOOZIES } from "../../utils/queries";
 
 const DoozieList = ({ doozies }) => {
+  // logic to add a new doozie
   const [doozieText, setText] = useState("");
-  console.log(doozieText)
   const [characterCount, setCharacterCount] = useState(0);
 
   const [addDoozie] = useMutation(ADD_DOOZIE, {
     update(cache, { data: { addDoozie } }) {
-
-        const { doozies } = cache.readQuery({ query: QUERY_DOOZIES });
-        cache.writeQuery({
-          query: QUERY_DOOZIES,
-          data: { doozies: [addDoozie, ...doozies] },
-        });
+      const { doozies } = cache.readQuery({ query: QUERY_DOOZIES });
+      cache.writeQuery({
+        query: QUERY_DOOZIES,
+        data: { doozies: [addDoozie, ...doozies] },
+      });
     },
   });
 
@@ -42,34 +41,39 @@ const DoozieList = ({ doozies }) => {
     }
   };
 
-  // const [completed] = useMutation(COMPLETE_DOOZIE);
+  // logic to change doozie status to completed or reverse
+  const [completeDoozie] = useMutation(COMPLETE_DOOZIE);
 
-  // const completedCheck = async event => {
-  //     event.preventDefault();
+  const handleCheck = async (event) => {
+    event.preventDefault();
+    // console.log(event.target)
+    try {
+      await completeDoozie({
+        variables: { id: event.target.id },
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
-  //     try {
-  //         await completed({
-  //             variables: { completed },
-  //         });
 
-  //     } catch (e) {
-  //         console.error(e);
-  //     }
-  // };
+  // delete logic
+  // const deleteCompletedDoozies = async (event) => {
+  //   event.preventDefault();
 
+  //   await Doozie.deleteMany({ completed: true })
+  // }
+
+  // display logic
   if (!doozies.length) {
-    return <h3>No to-do's have been added for today yet!</h3>;
+    return <h3>No tasks have been added for today yet!</h3>;
   }
   return (
     <div>
       {doozies.map((doozie) => (
         <div key={doozie._id} className="today-list">
           <h3>
-            <input
-              type="checkbox"
-              id="cbox"
-              // onChange={completedCheck}
-            />
+            <input type="checkbox" className="cbox" id={doozie._id} onChange={handleCheck} checked={doozie.completed ? true : false } />
             <label for="cbox">{doozie.doozieText}</label>
           </h3>
         </div>
@@ -82,9 +86,7 @@ const DoozieList = ({ doozies }) => {
             className="addNewDoozie"
             onChange={handleChange}
           ></textarea>
-          <p>
-            Character Count: {characterCount}/180
-          </p>
+          <p>Character Count: {characterCount}/180</p>
           <button type="submit">Submit Task!</button>
         </form>
       </div>
