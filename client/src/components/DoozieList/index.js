@@ -56,14 +56,6 @@ const DoozieList = ({ doozies }) => {
     }
   };
 
-
-  // delete logic
-  // const deleteCompletedDoozies = async (event) => {
-  //   event.preventDefault();
-
-  //   await Doozie.deleteMany({ completed: true })
-  // }
-
   // display logic
   if (!doozies.length) {
     return <h3>No tasks have been added for today yet!</h3>;

@@ -21,5 +21,8 @@
   "homepage": "https://github.com/jstable1/2-doozies#readme",
   "devDependencies": {
     "concurrently": "^7.2.0"
+  },
+  "dependencies": {
+    "react-schedule-job": "^1.2.0"
   }
 }
