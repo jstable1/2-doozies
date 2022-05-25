@@ -7,7 +7,6 @@
   --primary: #5ED1F7;
   --secondary: #ffffff;
   --yellow: #F4EB72;
-  /* --pink: #D9819E; */
   --pink: #D885FF;
 }
 
@@ -85,6 +84,7 @@ header h1 {
 
 footer {
   text-align: center;
+  margin-top: 10vw;
 }
 
 form button {
@@ -102,7 +102,7 @@ label {
   margin-top: 55px;
   background-color: var(--yellow);
   width: 40vw;
-  height: 20vw;
+  height: 30vw;
 }
 
 .signup-form button, .login-form button {
@@ -137,4 +137,34 @@ textarea {
 .today-list {
   color: var(--primary);
   margin: 4vw 0vw;
+}
+
+/* MEDIA QUERY FOR TABLETS AND SMALLER */
+@media screen and (max-width: 768px) {
+  .calendar {
+    padding-top: 10vw;
+  }
+  .signup-form, .login-form {
+    width: auto;
+    height: auto;
+  }
+  .today-list {
+    width: 30vw;
+  }
+}
+
+/* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
+@media screen and (max-width: 575px) {
+  .calendar {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+  }
+  .home {
+    flex-direction: column;
+  }
+  .today-list {
+    width: auto;
+  }
 }

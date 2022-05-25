@@ -15,7 +15,7 @@ const Home = () => {
 
 
     return (
-        <main className="flex-row">
+        <main className="flex-row home">
             <div className="today-list" style={{
                 backgroundImage: `url(${tasksBackground})`,
                 backgroundRepeat: 'no-repeat',

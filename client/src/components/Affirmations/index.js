@@ -1,4 +1,5 @@
-import {React, useState, useEffect} from "react";
+// import {React, useState, useEffect} from "react";
+import React from "react";
 import affirmationList from "../../assets/data/affirmations";
 import { GiRose } from "react-icons/gi";
 // import Schedule from "react-schedule-job";
@@ -35,8 +36,7 @@ import { GiRose } from "react-icons/gi";
 //       console.log(activeAffirmation)
 //     }
 //     retrieveCurrent()
-//   }, []
-//   );
+//   });
 
 //   return (
 //     <div>
