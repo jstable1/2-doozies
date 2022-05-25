@@ -95,6 +95,10 @@ label {
   padding-bottom: 20px;
 }
 
+.noTasks {
+  margin: 2vw 0;
+}
+
 .signup-form, .login-form {
   padding: 20px;
   border: 1px solid var(--yellow);

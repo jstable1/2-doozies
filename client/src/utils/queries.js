@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_DOOZIES = gql`
-    query doozies {
-        doozies {
+    query doozies($username: String) {
+        doozies(username: $username) {
         _id
         doozieText
         username
@@ -20,4 +20,19 @@ export const QUERY_DOOZIE = gql`
         completed
         }
     }
+`;
+
+export const QUERY_ME = gql`
+{
+    me {
+      _id
+      username
+      email
+      doozies {
+        doozieText
+        completed
+        _id
+      }
+    }
+  }
 `;

@@ -58,7 +58,21 @@ const DoozieList = ({ doozies }) => {
 
   // display logic
   if (!doozies.length) {
-    return <h3>No tasks have been added for today yet!</h3>;
+    return (
+      <div>
+        <h3 className="noTasks">No tasks have been added for today yet!</h3>
+        <form className="addDoozieForm" onSubmit={handleFormSubmit}>
+          <textarea
+            placeholder="Add a task here!"
+            value={doozieText}
+            className="addNewDoozie"
+            onChange={handleChange}
+          ></textarea>
+          <h4>Character Count: {characterCount}/180</h4>
+          <button type="submit" className="btnNewDoozie">Submit Task!</button>
+        </form>
+      </div>
+    )
   }
   return (
     <div>
