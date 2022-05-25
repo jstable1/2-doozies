@@ -17,3 +17,4 @@ This application allows user to add tasks to a daily to-do list. Users can check
 ![Screen Shot 2022-05-24 at 8 49 15 PM](https://user-images.githubusercontent.com/95373448/170170600-73bd0fcd-4fd1-4018-bf79-85afdb46eb09.png)
 
 ## Deployed Application
+https://safe-dusk-34146.herokuapp.com/
