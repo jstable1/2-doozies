@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { useMutation } from "@apollo/client";
 import { ADD_DOOZIE, COMPLETE_DOOZIE } from "../../utils/mutations";
-import { QUERY_DOOZIES } from "../../utils/queries";
+import { QUERY_ME} from "../../utils/queries";
 
 const DoozieList = ({ doozies }) => {
   // logic to add a new doozie
@@ -11,10 +11,10 @@ const DoozieList = ({ doozies }) => {
 
   const [addDoozie] = useMutation(ADD_DOOZIE, {
     update(cache, { data: { addDoozie } }) {
-      const { doozies } = cache.readQuery({ query: QUERY_DOOZIES });
+      const { me } = cache.readQuery({ query: QUERY_ME });
       cache.writeQuery({
-        query: QUERY_DOOZIES,
-        data: { doozies: [addDoozie, ...doozies] },
+        query: QUERY_ME,
+        data: { me: { ...me, doozies: [...me.doozies, addDoozie] } },
       });
     },
   });
@@ -43,7 +43,6 @@ const DoozieList = ({ doozies }) => {
 
   // logic to change doozie status to completed or reverse
   const [completeDoozie] = useMutation(COMPLETE_DOOZIE);
-
   const handleCheck = async (event) => {
     event.preventDefault();
     // console.log(event.target)
