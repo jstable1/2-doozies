@@ -3,6 +3,9 @@ const { User, Doozie } = require("../models");
 const { signToken } = require("../utils/auth");
 const schedule = require("node-schedule");
 
+let today = new Date();
+let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
 const resolvers = {
   Query: {
     me: async (parent, args, context) => {
@@ -122,7 +125,7 @@ const resolvers = {
 
 // auto delete logic for midnight
 schedule.scheduleJob("0 0 * * *", () => {
-  deleteCompleted();
+  deleteCompleted(time);
 });
 
 // auto delete logic for every minute
